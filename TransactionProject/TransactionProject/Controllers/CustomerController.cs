@@ -23,6 +23,7 @@ namespace TransactionProject.Controllers
         {
             return atmdbcontext.customerDetails.ToList();
         }
+
         [HttpGet("GetAccountNumber")]
         public CustomerDetails GetAccountNumber(long AccountNumber)
         {

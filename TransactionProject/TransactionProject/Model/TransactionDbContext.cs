@@ -15,5 +15,6 @@ namespace TransactionProject.Model
 
         public DbSet<CustomerDetails> customerDetails { get; set; }
         public DbSet<TransactionDetails> transactionDetails { get; set; }
+        public DbSet<AdminLongin> adminLongin { get; set; }
     }
 }
