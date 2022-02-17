@@ -60,10 +60,18 @@ namespace TransactionProject.Controllers
         [HttpDelete("DeleteCustomer")]
         public IActionResult DeleteCustomer(long AccountNumber)
         {
+            //select * from CustomerDetails where AccountNumber=123
             var result = atmdbcontext.customerDetails.Find(AccountNumber);
-            atmdbcontext.customerDetails.Remove(result);
-            atmdbcontext.SaveChanges();
-            return Ok("Deleted Successfully");
+            if (result != null)
+            {
+                atmdbcontext.customerDetails.Remove(result);
+                atmdbcontext.SaveChanges();
+                return Ok("Deleted Successfully");
+            }
+            else
+            {
+                return NotFound("Invalid Account number");
+            }
 
         }
     }

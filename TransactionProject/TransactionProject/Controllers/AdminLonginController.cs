@@ -22,5 +22,20 @@ namespace TransactionProject.Controllers
         {
             return trandbcontext.adminLongin.ToList();
         }
+
+        [HttpPost("InsertLoginCredential")]
+        public IActionResult InsertLoginCredential([FromBody] AdminLongin adminLongin)
+        {
+            if (adminLongin.UserName.ToString() != "")
+            {
+                trandbcontext.adminLongin.Add(adminLongin);
+                trandbcontext.SaveChanges();
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }
